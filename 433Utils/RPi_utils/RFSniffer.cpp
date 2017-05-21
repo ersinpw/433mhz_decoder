@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
           newstreamvalue << value;
           newvalue = newstreamvalue.str();
 
-          std::string tmp = "./script.sh " + newvalue;
+          std::string tmp = "/home/pi/433mhz_decoder/script.sh " + newvalue;
 
           end = time(NULL);
 
