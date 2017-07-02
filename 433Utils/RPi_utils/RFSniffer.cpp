@@ -47,6 +47,8 @@ int main(int argc, char *argv[]) {
      time_t start, end;
      double elapsed;
      start = time(NULL);
+  
+     std::string last;
 
      while(1) {
 
@@ -79,25 +81,33 @@ int main(int argc, char *argv[]) {
 
           elapsed = difftime(end, start);
 
-          if (elapsed <= 5.0 /* seconds */) {
-            terminate = 0;
-
-            if(run==0) {
-              printf("== RESET ==");
-              printf("elapsed %i\n", start);
-
-              start = time(NULL);
-              system(tmp.c_str()); // Run bash file
-
-              run++;
-            }
-          }  else  {
-            run = 0;
+          if(newvalue != last) {
             start = time(NULL);
+            system(tmp.c_str()); // Run bash file
+            run++;
+          } else {
+            if (elapsed <= 5.0 /* seconds */) {
+              terminate = 0;
 
-            printf("elapsed %i \n", end);
+              if(run==0) {
+                printf("== RESET ==");
+                printf("elapsed %i\n", start);
+ 
+               start = time(NULL);
+                system(tmp.c_str()); // Run bash file
+
+                run++;
+              }
+            }  else  {
+              run = 0;
+              start = time(NULL);
+
+              printf("elapsed %i \n", end);
+            }
           }
-
+          
+          last = newvalue;
+          
           printf("Received %i\n", mySwitch.getReceivedValue() );
         }
     
