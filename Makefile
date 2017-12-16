@@ -15,7 +15,7 @@ install:
 
         sudo rm -rf /etc/init.d/RFSniffer
 
-        sudo cp ./433Utils/RPi_utils/RFSniffer /etc/init.d/RFSniffer
+        sudo cp ./initd_rfsniffer /etc/init.d/RFSniffer
         sudo ln -sf $(shell pwd)/433Utils/RPi_utils/script.sh /etc/init.d/script.sh
         sudo chmod +x /etc/init.d/RFSniffer
         sudo update-rc.d RFSniffer defaults
