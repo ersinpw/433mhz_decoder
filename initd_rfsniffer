@@ -1,5 +1,6 @@
 #!/bin/bash
 # /home/pi/433mhz_decoder/433Utils/RPi_utils
+# aanpassing 1
 
 ### BEGIN INIT INFO
 # Provides:          servoblaster
